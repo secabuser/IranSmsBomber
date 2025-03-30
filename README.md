@@ -1,6 +1,3 @@
-Here’s a sample `README.md` for your tool based on the structure you provided:
-
-```markdown
 # Service Request Tool
 
 A Python-based tool to send requests across multiple services! 🚀
@@ -28,8 +25,6 @@ Install dependencies using:
 ```bash
 pip install -r requirements.txt
 ```
-
----
 
 ## How to Use
 
