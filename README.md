@@ -1,7 +1,5 @@
 # Service Request Tool
 
-A Python-based tool to send requests across multiple services! 🚀
-
 ![Screenshot of Tool](tool_screenshot.png)
 
 ---
