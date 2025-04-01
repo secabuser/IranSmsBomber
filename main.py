@@ -7,7 +7,7 @@ from time import sleep, time
 from datetime import timedelta
 import sys
 from pystyle import Colors, Colorate, Center
-from api import SERVICES  # Make sure you have this api.py file with the SERVICES dictionary
+from api import SERVICES
 
 init()
 
@@ -72,7 +72,7 @@ def send_request(service_name, number, counter):
             print(f"{r}{service_name.ljust(15)} wtf  :] {re}")
             return
             
-        response = api_func(number)  # Removed proxies parameter
+        response = api_func(number)
         if response.status_code in [200, 201, 202]:
             print(f"{g}{service_name.ljust(15)} Sent ! | ({response.status_code}){re}")
             counter.increment()
