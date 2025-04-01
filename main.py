@@ -7,7 +7,7 @@ from time import sleep, time
 from datetime import timedelta
 import sys
 from pystyle import Colors, Colorate, Center
-from api import SERVICES
+from api import SERVICES  # Make sure you have this api.py file with the SERVICES dictionary
 
 init()
 
@@ -65,22 +65,21 @@ def show_results(counter, phone, total_services):
     
     print(Colorate.Diagonal(Colors.red_to_blue, Center.XCenter(results_box)))
 
-def send_request(service_name, number, counter, proxies=None):
+def send_request(service_name, number, counter):
     try:
-
         api_func = SERVICES.get(service_name)
         if not api_func:
-            print(f"{r}{service_name.ljust(15)} Service not found!{re}")
+            print(f"{r}{service_name.ljust(15)} wtf  :] {re}")
             return
             
-        response = api_func(number, proxies)
-        if response.status_code == 200:
-            print(f"{g}{service_name.ljust(15)} Sent!{re}")
+        response = api_func(number)  # Removed proxies parameter
+        if response.status_code in [200, 201, 202]:
+            print(f"{g}{service_name.ljust(15)} Sent ! | ({response.status_code}){re}")
             counter.increment()
         else:
-            print(f"{r}{service_name.ljust(15)} NotSent! (Status: {response.status_code}){re}")
+            print(f"{r}{service_name.ljust(15)} Not Sent ! | ({response.status_code}){re}")
     except Exception as e:
-        print(f"{r}{service_name.ljust(15)} Error: {str(e)}{re}")
+        print(f"{r}{service_name.ljust(15)} Error > {str(e)}{re}")
 
 def main():
     clear_screen()
@@ -89,24 +88,43 @@ def main():
     try:
         phone = input(f'{w}Phone > {re}').strip()
         if not phone.isdigit() or len(phone) != 10:
-            print(f"{r}Invalid phone number!{re}")
-            sys.exit()
+            print(f"{r}Invalid phone number :] {re}")
+            sys.exit(1)
         
-        rounds = int(input(f'{w}Round > {re}') or 1)
-        if rounds < 1:
-            print(f"{r}Rounds must be 1 or more!{re}")
-            sys.exit()
+        try:
+            rounds = int(input(f'{w}Round > {re}') or 1)
+            if rounds < 1:
+                print(f"{r}Rounds must be 1 or more :]{re}")
+                sys.exit(1)
+        except ValueError:
+            print(f"{r}Invalid rounds number :] {re}")
+            sys.exit(1)
         
-        max_threads = int(input(f'{w}Thread > {re}') or 5)
-        time_sleep = float(input(f'{w}Sleep > {re}') or 1)
+        try:
+            max_threads = int(input(f'{w}Thread > {re}') or 5)
+            if max_threads < 1:
+                print(f"{r}Threads must be 1 or more :] {re}")
+                sys.exit(1)
+        except ValueError:
+            print(f"{r}Invalid threads number :] {re}")
+            sys.exit(1)
+        
+        try:
+            time_sleep = float(input(f'{w}Sleep > {re}') or 1)
+            if time_sleep < 0:
+                print(f"{r}Sleep time cannot be negative :] {re}")
+                sys.exit(1)
+        except ValueError:
+            print(f"{r}Invalid sleep time :] {re}")
+            sys.exit(1)
         
         clear_screen()
         show_banner()
         
         services = list(SERVICES.keys())
         if not services:
-            print(f"{r}No services available!{re}")
-            sys.exit()
+            print(f"{r}api.py not find :] {re}")
+            sys.exit(1)
         
         counter = Counter()
         total_services = len(services)
@@ -119,7 +137,8 @@ def main():
             counter.increment_round()
             
             with ThreadPoolExecutor(max_workers=max_threads) as executor:
-                executor.map(lambda service: send_request(service, phone, counter), services)
+                args = [(service, phone, counter) for service in services]
+                executor.map(lambda x: send_request(*x), args)
             
             if current_round < rounds:
                 sleep(time_sleep)
@@ -127,9 +146,11 @@ def main():
         show_results(counter, phone, total_services)
     
     except KeyboardInterrupt:
-        print(f"\n{r}Op cancelled !{re}")
+        print(f"\n{r}Cancelled  :] {re}")
+        sys.exit(0)
     except Exception as e:
         print(f"\n{r}Error > {e}{re}")
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()
