@@ -74,10 +74,10 @@ def send_request(service_name, number, counter):
             
         response = api_func(number)
         if response.status_code in [200, 201, 202]:
-            print(f"{g}{service_name.ljust(15)} Sent ! | ({response.status_code}){re}")
+            print(f"{g}{service_name.ljust(15)} Sent  |  ({response.status_code}){re}")
             counter.increment()
         else:
-            print(f"{r}{service_name.ljust(15)} Not Sent ! | ({response.status_code}){re}")
+            print(f"{r}{service_name.ljust(15)} Not Sent  |  ({response.status_code}){re}")
     except Exception as e:
         print(f"{r}{service_name.ljust(15)} Error > {str(e)}{re}")
 
