@@ -5,9 +5,9 @@
 ---
 
 ## Features
-- Multi-threaded for high performance.
-- Customizable rounds and delays.
-- Displays detailed results including elapsed time and success rate.
+- Fast
+- +130 Api
+- Show Results
 
 ---
 
@@ -91,13 +91,3 @@ Provide:
 
 #### Step 5: View Results
 The script displays results on-screen after execution.
-
----
-
-### Additional Notes
-1. **Customization**:
-   - Add more services by updating the `SERVICES` dictionary in `api.py`.
-2. **Error Handling**:
-   - Logs errors and skips failed API calls to ensure continuity.
-3. **Compatibility**:
-   - Compatible with Linux and Windows systems.
