@@ -33,7 +33,7 @@ class Counter:
     def get_elapsed_time(self):
         return timedelta(seconds=int(time() - self.start_time))
 
-def show_banner():
+def _bn():
     print(Colorate.Diagonal(Colors.red_to_blue, Center.XCenter("""
 
  ▗▄▄▖▗▖  ▗▖ ▗▄▄▖    ▗▄▄▖  ▗▄▖ ▗▖  ▗▖▗▄▄▖ ▗▄▄▄▖▗▄▄▖ 
@@ -44,14 +44,14 @@ def show_banner():
                   t.me/secabuser
 """)))
 
-def clear_screen():
+def _cs():
     system('cls' if name == 'nt' else 'clear')
 
-def show_results(counter, phone, total_services):
-    clear_screen()
-    show_banner()
+def _res(counter, phone, total_services):
+    _cs()
+    _bn()
     
-    results_box = f"""
+    _res = f"""
 ╔{'═'*37}╗
 ║{'   RESULTS'.center(33)}    ║
 ╠{'═'*37}╣
@@ -63,9 +63,9 @@ def show_results(counter, phone, total_services):
 ╚{'═'*37}╝
 """
     
-    print(Colorate.Diagonal(Colors.red_to_blue, Center.XCenter(results_box)))
+    print(Colorate.Diagonal(Colors.red_to_blue, Center.XCenter(_res)))
 
-def send_request(service_name, number, counter):
+def _sq(service_name, number, counter):
     try:
         api_func = SERVICES.get(service_name)
         if not api_func:
@@ -82,8 +82,8 @@ def send_request(service_name, number, counter):
         print(f"{r}{service_name.ljust(15)} Error > {str(e)}{re}")
 
 def main():
-    clear_screen()
-    show_banner()
+    _cs()
+    _bn()
     
     try:
         phone = input(f'{w}Phone > {re}').strip()
@@ -101,8 +101,8 @@ def main():
             sys.exit(1)
         
         try:
-            max_threads = int(input(f'{w}Thread > {re}') or 5)
-            if max_threads < 1:
+            _mt = int(input(f'{w}Thread > {re}') or 5)
+            if _mt < 1:
                 print(f"{r}Threads must be 1 or more :] {re}")
                 sys.exit(1)
         except ValueError:
@@ -118,8 +118,8 @@ def main():
             print(f"{r}Invalid sleep time :] {re}")
             sys.exit(1)
         
-        clear_screen()
-        show_banner()
+        _cs()
+        _bn()
         
         services = list(SERVICES.keys())
         if not services:
@@ -136,14 +136,14 @@ def main():
             print(f"{w}Round {current_round}/{rounds}")
             counter.increment_round()
             
-            with ThreadPoolExecutor(max_workers=max_threads) as executor:
+            with ThreadPoolExecutor(max_workers=_mt) as executor:
                 args = [(service, phone, counter) for service in services]
-                executor.map(lambda x: send_request(*x), args)
+                executor.map(lambda x: _sq(*x), args)
             
             if current_round < rounds:
                 sleep(time_sleep)
         
-        show_results(counter, phone, total_services)
+        _res(counter, phone, total_services)
     
     except KeyboardInterrupt:
         print(f"\n{r}Cancelled  :] {re}")
